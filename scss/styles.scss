@@ -1,17 +1,45 @@
 // Resets, Clearfix, etc
+@import 'partials/_clearfix';
+@import 'partials/_reset';
 
 // Variables
+$dark-color: #ff006a;
+$light-color: #ffff00;
+$bright-color: #39ff2b;
+$padding: 20px;
 
 // Media Query Ranges
 
+$mobile-screen: screen and (min-width: 320px) and (max-width:599px);
+$medium-screen: screen and (min-width: 600px);
+$large-screen: screen and (min-width: 900px);
+
 // Mixins
+
+@mixin block_font($block_font_size: 25px, $block_font_color: $light-color){
+  font-size: $block_font_size;
+  color: $block_font_color;
+}
+
 
 // Styles
 body{
-  background-color: orange;
   text-align: center;
   color: #EEE;
+  @media #{$mobile-screen} {
+  background-color: $dark-color;
+  @include block_font(35px, #222);
+  }
+  @media #{$medium-screen} {
+    background-color: $light-color;
+    @include block_font(35px, $bright-color);
+  }
+  @media #{$large-screen} {
+    background-color: $bright-color;
+    @include block_font(35px, $dark-color);
+  }
 }
+
 
 h1, h2, h3, h4{
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
@@ -27,12 +55,41 @@ h2{
 
 
 .block_family{
+  @media #{$mobile-screen} {
   max-width:350px;
+  }
+
+  @media #{$medium-screen} {
+  max-width:600px;
+  }
+  @media #{$large-screen} {
+  max-width:850px;
+  }
   margin:auto;
+
 }
 
 .block_family li{
-  background-color: #222;
-  margin-bottom: 20px;
-  padding: 20px;
+    @media #{$mobile-screen} {
+    background-color: $bright-color;
+    margin: 15px;
+    padding: 29px;
+
+  }
+    @media #{$medium-screen} {
+    background-color: $dark-color;
+    display: inline-block;
+    width: 200px;
+    margin: 5px;
+    padding: 33px;
+
+  }
+    @media #{$large-screen} {
+    background-color: $light-color;
+    display: inline-block;
+    width: 200px;
+    margin: 3px;
+    padding: 35px;
+
+  }
 }
