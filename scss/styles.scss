@@ -22,6 +22,7 @@ $large-screen: screen and (min-width: 900px);
 }
 
 
+
 // Styles
 body{
   text-align: center;
@@ -37,6 +38,7 @@ body{
   @media #{$large-screen} {
     background-color: $bright-color;
     @include block_font(35px, $dark-color);
+
   }
 }
 
@@ -63,7 +65,7 @@ h2{
   max-width:600px;
   }
   @media #{$large-screen} {
-  max-width:850px;
+  max-width:900px;
   }
   margin:auto;
 
@@ -74,22 +76,31 @@ h2{
     background-color: $bright-color;
     margin: 15px;
     padding: 29px;
+    &:nth-child(even) {
+      background-color: white;
+    }
 
-  }
+  };
     @media #{$medium-screen} {
     background-color: $dark-color;
     display: inline-block;
     width: 200px;
     margin: 5px;
     padding: 33px;
+    &:nth-child(even) {
+      background-color: white;
+    }
 
-  }
+  };
     @media #{$large-screen} {
     background-color: $light-color;
     display: inline-block;
     width: 200px;
     margin: 3px;
     padding: 35px;
+    &:nth-child(even) {
+    background-color: white;
+    }
 
   }
 }
